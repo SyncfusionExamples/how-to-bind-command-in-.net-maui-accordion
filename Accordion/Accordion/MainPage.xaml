@@ -4,29 +4,40 @@
              xmlns:accordion="clr-namespace:Syncfusion.Maui.Accordion;assembly=Syncfusion.Maui.Expander"
              xmlns:local="clr-namespace:Accordion"
              x:Class="Accordion.MainPage">
-    
+
     <ContentPage.BindingContext>
-        <local:ItemInfoRepository x:Name="viewModel"/>
+        <local:ItemInfoRepository x:Name="viewModel" />
     </ContentPage.BindingContext>
 
-    <accordion:SfAccordion x:Name="accordion" BindableLayout.ItemsSource="{Binding Info}" ExpandMode="SingleOrNone">
+    <accordion:SfAccordion x:Name="accordion"
+                           BindableLayout.ItemsSource="{Binding Info}"
+                           ExpandMode="SingleOrNone">
         <BindableLayout.ItemTemplate>
             <DataTemplate>
                 <accordion:AccordionItem>
                     <accordion:AccordionItem.Header>
-                        <Grid Padding="5,0,0,0" HeightRequest="50">
-                            <Label Text="{Binding Name}" FontSize="20" />
+                        <Grid Padding="5,0,0,0"
+                              HeightRequest="50">
+                            <Label Text="{Binding Name}"
+                                   FontSize="20" />
                         </Grid>
                     </accordion:AccordionItem.Header>
                     <accordion:AccordionItem.Content>
-                        <Grid BackgroundColor="#C0C0C0" Padding="5,0,0,0">
+                        <Grid BackgroundColor="#C0C0C0"
+                              Padding="5,0,0,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="65" />
                             </Grid.ColumnDefinitions>
-                            <Label Text="{Binding Description}" VerticalOptions="Center"/>
-                            <Grid Grid.Column="1" Padding="10" BackgroundColor="#C0C0C0">
-                                <ImageButton BackgroundColor="{OnPlatform WinUI=#C0C0C0}" Source="details.png" Command="{Binding Path=BindingContext.ShowDetailsCommand, Source={x:Reference accordion}}" CommandParameter="{Binding .}"/>
+                            <Label Text="{Binding Description}"
+                                   VerticalOptions="Center" />
+                            <Grid Grid.Column="1"
+                                  Padding="10"
+                                  BackgroundColor="#C0C0C0">
+                                <ImageButton BackgroundColor="{OnPlatform WinUI=#C0C0C0}"
+                                             Source="details.png"
+                                             Command="{Binding Path=BindingContext.ShowDetailsCommand, Source={x:Reference accordion}}"
+                                             CommandParameter="{Binding .}" />
                             </Grid>
                         </Grid>
                     </accordion:AccordionItem.Content>
@@ -34,6 +45,5 @@
             </DataTemplate>
         </BindableLayout.ItemTemplate>
     </accordion:SfAccordion>
-
 
 </ContentPage>
